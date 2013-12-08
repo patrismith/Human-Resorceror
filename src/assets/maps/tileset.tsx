@@ -111,4 +111,79 @@
    <property name="Solid" value=""/>
   </properties>
  </tile>
+ <tile id="104">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="105">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="132">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="136">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="137">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="165">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="166">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="167">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="168">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="197">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="198">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="199">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="200">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="201">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
+ <tile id="228">
+  <properties>
+   <property name="Solid" value=""/>
+  </properties>
+ </tile>
 </tileset>

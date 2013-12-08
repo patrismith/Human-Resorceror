@@ -28,6 +28,12 @@ function NPC:init(params)
    self.tx = self.x
    self.ty = self.y
 
+   self.img = params.img
+   self.sheet = params.sheet
+   print("tipe for " .. self.name)
+   print(type(params.tipe))
+   print(type(params.img))
+
 end
 
 
@@ -45,7 +51,11 @@ function NPC:draw()
    --DBUGprint("NPC:draw() drawn")
    love.graphics.setColor(255,255,255)
 
-   love.graphics.rectangle("fill", self.x, self.y, 8, 8)
+   --love.graphics.rectangle("fill", self.x, self.y, 8, 8)
+   if self.img then
+      love.graphics.drawq(self.sheet,self.img,self.x,self.y-tilesize)
+   end
+
    if self.dialogue.active then self.dialogue:draw() end
 
 

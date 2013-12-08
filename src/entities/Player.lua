@@ -20,7 +20,8 @@ function Player:draw()
    --DBUGprint("Player:draw() drawn")
    love.graphics.setColor(255,255,255)
 
-   love.graphics.rectangle("fill", self.x, self.y, 8, 8)
+   --love.graphics.rectangle("fill", self.x, self.y, 8, 8)
+   love.graphics.drawq(charsprites,playerimg,self.x,self.y-tilesize)
 
    love.graphics.setColor(255,255,255)
 

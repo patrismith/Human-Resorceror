@@ -30,7 +30,6 @@ function love.load()
    collision:init()
    combat:init()
    playerstats:init()
-   statemanager:init()
 
    love.graphics.setColorMode('replace')
    love.graphics.setLine(1,'rough')
@@ -38,6 +37,20 @@ function love.load()
    local img = love.graphics.newImage('assets/littlefont.png')
    img:setFilter("nearest","nearest")
    dialogueFont = love.graphics.newImageFont(img, " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!'\"-:?")
+
+   othersprites = love.graphics.newImage('assets/maps/tileset.png')
+   charsprites = love.graphics.newImage('assets/sprites.png')
+   playerimg = love.graphics.newQuad(0,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   mustache = love.graphics.newQuad(tilesize,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   oldone = love.graphics.newQuad(tilesize*2,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   pigtails = love.graphics.newQuad(tilesize*3,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   fashionable = love.graphics.newQuad(tilesize*4,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   oldtwo = love.graphics.newQuad(tilesize*5,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   boss = love.graphics.newQuad(tilesize*6,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+
+   computerq = love.graphics.newQuad(48,24,tilesize,tilesize,256,240)
+
+   statemanager:init()
 
    love.graphics.setFont(dialogueFont)
 
