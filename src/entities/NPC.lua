@@ -30,9 +30,6 @@ function NPC:init(params)
 
    self.img = params.img
    self.sheet = params.sheet
-   print("tipe for " .. self.name)
-   print(type(params.tipe))
-   print(type(params.img))
 
 end
 

@@ -11,9 +11,18 @@ end
 function statemanager:change(state, x, y)
 
    collision:destroy()
-   --collision:init()
+   collision:init()
+--  if self.currentstate then
+--      self.states[self.currentstate]:destroy()
+--   end
+   if self.currentstate then
+      self.paststate = self.currentstate
+   end
    self.currentstate = state
    self.states[self.currentstate]:load(x, y)
+   if self.paststate then
+      self.states[self.paststate]:destroy()
+   end
 
 end
 
@@ -54,7 +63,9 @@ end
 
 function statemanager:initiateChat(who)
 
-   self.states[self.currentstate].objects[who]:talk()
+   if self.states[self.currentstate].objects[who] then
+      self.states[self.currentstate].objects[who]:talk()
+   end
 
 end
 
@@ -62,7 +73,7 @@ end
 function statemanager:freezePlayer(freeze)
 
    -- this func is called from DialogueBoxSeries
-   -- haven't figured out how to freeze the npc that's talking
+   -- haven't figured out how to freeze the other npcs
    self.states[self.currentstate].objects.player.frozen = freeze
 
 end
@@ -71,7 +82,10 @@ end
 function statemanager:init()
 
    self.states = {YourOffice = require('states.YourOffice'),
-                  Test = require('states.Test'),
+                  Hallway = require('states.Hallway'),
+                  Office01 = require('states.Office01'),
+                  Office02 = require('states.Office02'),
+                  Breakroom = require('states.Breakroom'),
                  }
    self:change("YourOffice", 19 * tilesize, 12 * tilesize) -- state to start with, with player coordinates.
    -- see "youroffice.lua" for more 'info' on player coords :(

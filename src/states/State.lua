@@ -12,6 +12,8 @@ function State:load(x, y)
       love.audio.play(self.music)
    end
 
+   self:destroy()
+
    -- all entities that will appear in or affect the scene, should be in this table
    self.objects = self.objectList or {}
    -- entities in objectList that will be drawn at some point
@@ -26,7 +28,11 @@ function State:load(x, y)
 
    -- initialize all entities with their parameters
    for k,v in pairs(self.paramList) do
-      self.objects[k]:init(v)
+      print("self.paramList keys: " .. k)
+      print(v)
+      if k ~= nil then
+         self.objects[k]:init(v)
+      end
    end
 
    if x then self.objects.player.x = x end
@@ -34,8 +40,8 @@ function State:load(x, y)
 
    -- mark everything in self.static as active
    for i,v in ipairs(self.static) do
-      print(i)
-      print(v)
+      print("self.static: " .. i)
+      print("self.static: " .. v)
       if self.objects[v] then
          self.objects[v].active = true
       end
@@ -49,6 +55,17 @@ function State:load(x, y)
    -- everything will be drawn to a canvas
    self.canvas = love.graphics.newCanvas(256, 240)
    self.canvas:setFilter("nearest","nearest")
+
+end
+
+
+function State:destroy()
+
+   if self.objects then
+      for k, _ in pairs(self.objects) do
+         self.objects[k].active = false
+      end
+   end
 
 end
 

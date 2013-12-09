@@ -124,10 +124,16 @@ function combat:init()
    self.triggered = false
    self.ready = false
 
-   self.enemies = { intern = { PP = { max = 1,
-                                      cur = 1 },
+   self.enemies = { intern = { PP = { max = 3,
+                                      cur = 3 },
                                LVL = 1,
-                               name = "intern"},
+                               name = "intern",
+                               img = ,},
+                    fileclerk = { PP = { max = 5,
+                                         cur = 5 },
+                                  LVL = 3,
+                                  name = "fileclerk",
+                                  img = , }
                   }
 
    -- the three tones of conversation

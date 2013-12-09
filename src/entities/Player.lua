@@ -57,7 +57,7 @@ function Player:keypressed(key)
       -- repeat the below for all directions
       local who = collision:isNextTo(self.x, self.y, self.name)
       if who then
-         print("talky to " .. who or "nobody")
+         --print("talky to " .. who or "nobody")
          statemanager:initiateChat(who)
       end
    end
