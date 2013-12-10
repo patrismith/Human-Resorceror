@@ -40,7 +40,7 @@ function playerstats:init()
    -- pp is 'passion points'. like hit points
    self.PP = { min = 0,
           max = 10,
-          cur = 1 }
+          cur = 10 }
    -- exp is experience points, you collect during battle
    -- when cur hits max, LVL increments and EXP max is raised
    -- no minimum since i don't plan on making it decrease

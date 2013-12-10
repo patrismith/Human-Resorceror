@@ -71,7 +71,7 @@ function playerturn:keypressed(key)
          elseif self.tone == 3 then self.tone = 'p'
          end
          combat.playertone = self.tone
-         self.text = combat.playerlines[self.tone][math.random(1,#combat.enemylines[self.tone])]
+         self.text = combat.playerlines[self.tone][math.random(1,#combat.playerlines[self.tone])]
          print(self.text)
          self.dialogue:init({text = self.text})
          self.show = true

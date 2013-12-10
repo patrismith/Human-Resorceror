@@ -1,35 +1,35 @@
-local Office02 = State:new()
+local Office04 = State:new()
 
-Office02.objectList = { bg = Map:new(),
+Office04.objectList = { bg = Map:new(),
                        player = Player:new(),
                        door01 = Exit:new(),
                        door02 = Exit:new()
                       }
 
-Office02.paramList = { bg = { map = 'coworkeroffice02.tmx'},
+Office04.paramList = { bg = { map = 'coworkeroffice04.tmx'},
                       player = {},
                       door01 = { x = 27 * tilesize,
                                y = 14 * tilesize,
-                               dest = { name = 'Hallway',
-                                        x = 16 * tilesize,
-                                        y = 14 * tilesize },
+                               dest = { name = 'Switcharound',
+                                        x = 15 * tilesize,
+                                        y = 12 * tilesize },
                       },
                       door02 = { x = 4 * tilesize,
                                  y = 14 * tilesize,
-                                 dest = { name = 'FileHall',
-                                          x = 28 * tilesize,
-                                          y = 15 * tilesize },
+                                 dest = { name = 'LibHall',
+                                          x = 7 * tilesize,
+                                          y = 7 * tilesize },
                       },
                      }
 
-Office02.zList = { "bg",
+Office04.zList = { "bg",
                   "player",
 }
 
-Office02.staticList = { "bg",
+Office04.staticList = { "bg",
                        "player",
                        "door01",
                        "door02"
 }
 
-return Office02
+return Office04
