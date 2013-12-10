@@ -88,6 +88,7 @@ function statemanager:init()
                   Office03 = require('states.Office03'),
                   Office04 = require('states.Office04'),
                   Office05 = require('states.Office05'),
+                  Office06 = require('states.Office06'),
                   Breakroom = require('states.Breakroom'),
                   LibHall = require('states.LibHall'),
                   FileHall = require('states.FileHall'),

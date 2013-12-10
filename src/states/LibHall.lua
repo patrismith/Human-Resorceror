@@ -23,9 +23,9 @@ LibHall.paramList = { bg = { map = 'libraryhallway.tmx'},
                       },
                       door03 = { x = 2 * tilesize,
                                  y = 4 * tilesize,
-                                 dest = { name = 'FileHall', -- replace
-                                          x = 28 * tilesize,
-                                          y = 15 * tilesize },
+                                 dest = { name = 'Office06',
+                                          x = 26 * tilesize,
+                                          y = 16 * tilesize },
                       },
                      }
 
