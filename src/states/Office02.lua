@@ -4,12 +4,29 @@ Office02.music = overworld01bgm
 
 Office02.objectList = { bg = Map:new(),
                        player = Player:new(),
+                       worker01 = NPC:new(),
+                       worker02 = NPC:new(),
                        door01 = Exit:new(),
                        door02 = Exit:new()
                       }
 
 Office02.paramList = { bg = { map = 'coworkeroffice02.tmx'},
                       player = {},
+                      worker01 = { x = 16,
+                                   y = 13,
+                                   name = 'worker01',
+                                   img = oldtwo,
+                                   sheet = charsprites,
+                                   dialogue = {
+                                      {"My dad thinks I'm a failure, but I'll show him!"},},},
+                      worker02 = { x = 10,
+                                   y = 17,
+                                   name = 'worker02',
+                                   img = fashionable,
+                                   sheet = charsprites,
+                                   moves = true,
+                                   dialogue = {
+                                      {"I've heard the new CEO is a little weird. What have you heard?"},},},
                       door01 = { x = 27 * tilesize,
                                y = 14 * tilesize,
                                dest = { name = 'Hallway',
