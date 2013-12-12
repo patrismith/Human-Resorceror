@@ -7,11 +7,11 @@ Office09.objectList = { bg = Map:new(),
 
 Office09.paramList = { bg = { map = 'coworkeroffice09.tmx'},
                       player = {},
-                      door = { x = 27 * tilesize,
+                      door = { x = 4 * tilesize,
                                y = 14 * tilesize,
                                dest = { name = 'Office05',
-                                        x = 5 * tilesize,
-                                        y = 16 * tilesize },
+                                        x = 26 * tilesize,
+                                        y = 15 * tilesize },
                       },
                      }
 

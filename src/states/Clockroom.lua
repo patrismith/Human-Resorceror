@@ -1,5 +1,7 @@
 local Clockroom = State:new()
 
+Clockroom.music = overworld02bgm
+
 Clockroom.objectList = { bg = Map:new(),
                        player = Player:new(),
                        door01 = Exit:new(),

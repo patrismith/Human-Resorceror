@@ -1,5 +1,7 @@
 local Office10 = State:new()
 
+Office10.music = overworld02bgm
+
 Office10.objectList = { bg = Map:new(),
                        player = Player:new(),
                        door01 = Exit:new(),

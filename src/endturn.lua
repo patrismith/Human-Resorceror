@@ -5,8 +5,11 @@ function endturn:load(winner)
 
    self.levelup = nil
    self.show = nil
-   print('endturn loading')
-   print('player health is: ' .. playerstats.PP.cur)
+   --print('endturn loading')
+   --print('player health is: ' .. playerstats.PP.cur)
+   love.audio.rewind(defaultmusic)
+   love.audio.stop()
+   love.audio.play(defaultmusic)
    self.dialogue = DialogueBox:new()
    if winner == 'player' then
       local exp = 2 * combat.currenemy.LVL

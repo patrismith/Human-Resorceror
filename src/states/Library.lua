@@ -10,8 +10,8 @@ Library.paramList = { bg = { map = 'library.tmx'},
                       door = { x = 27 * tilesize,
                                y = 14 * tilesize,
                                dest = { name = 'Switcharound',
-                                        x = 16 * tilesize,
-                                        y = 14 * tilesize },
+                                        x = 3 * tilesize,
+                                        y = 16 * tilesize },
                       },
                      }
 

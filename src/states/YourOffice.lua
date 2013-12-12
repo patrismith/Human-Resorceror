@@ -1,5 +1,6 @@
 local YourOffice = State:new()
 
+YourOffice.music = overworld01bgm
 
 YourOffice.objectList = { bg = Map:new(),
                           player = Player:new(),

@@ -83,12 +83,19 @@ function statemanager:init()
 
    self.states = {YourOffice = require('states.YourOffice'),
                   Hallway = require('states.Hallway'),
+                  Hallway02 = require('states.Hallway02'),
+                  Hallway03 = require('states.Hallway03'),
+                  Hallway04 = require('states.Hallway04'),
                   Office01 = require('states.Office01'),
                   Office02 = require('states.Office02'),
                   Office03 = require('states.Office03'),
                   Office04 = require('states.Office04'),
                   Office05 = require('states.Office05'),
                   Office06 = require('states.Office06'),
+                  Office07 = require('states.Office07'),
+                  Office08 = require('states.Office08'),
+                  Office09 = require('states.Office09'),
+                  Office10 = require('states.Office10'),
                   Breakroom = require('states.Breakroom'),
                   LibHall = require('states.LibHall'),
                   FileHall = require('states.FileHall'),
@@ -96,6 +103,11 @@ function statemanager:init()
                   Eyeroom = require('states.Eyeroom'),
                   Clockroom = require('states.Clockroom'),
                   Computerroom = require('states.Computerroom'),
+                  Library = require('states.Library'),
+                  Ceoroom = require('states.Ceoroom'),
+                  Foodstorage = require('states.Foodstorage'),
+                  Deadend01 = require('states.Deadend01'),
+                  Deadend02 = require('states.Deadend02')
                  }
    self:change("YourOffice", 19 * tilesize, 12 * tilesize) -- state to start with, with player coordinates.
    -- see "youroffice.lua" for more 'info' on player coords :(

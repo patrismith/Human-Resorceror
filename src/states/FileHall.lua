@@ -1,5 +1,7 @@
 local FileHall = State:new()
 
+FileHall.music = overworld04bgm
+
 FileHall.objectList = { bg = Map:new(),
                        player = Player:new(),
                        door01 = Exit:new(),
@@ -19,9 +21,9 @@ FileHall.paramList = { bg = { map = 'fileroomhallway.tmx'},
                       },
                       door02 = { x = 2 * tilesize,
                                  y = 14 * tilesize,
-                                 dest = { name = 'LibHall', -- replace
-                                          x = 5 * tilesize,
-                                          y = 15 * tilesize },
+                                 dest = { name = 'Hallway04',
+                                          x = 28 * tilesize,
+                                          y = 16 * tilesize },
                       },
                       door03 = { x = 22 * tilesize,
                                  y = 12 * tilesize,

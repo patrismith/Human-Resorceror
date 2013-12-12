@@ -29,6 +29,9 @@ end
 
 function combat:load(enemy)
 
+   love.audio.stop()
+   love.audio.play(battlebgm)
+
    self.currenemy = self.enemies[enemy]
    --for k, v in pairs(self.currenemy) do
    --   print(k .. " " .. type(v))
@@ -138,7 +141,13 @@ function combat:init()
                                          cur = 5 },
                                   LVL = 3,
                                   name = "fileclerk",
-                                  img = old01battle, }
+                                  img = old01battle, },
+                    coworker01 = { PP = { max = 7,
+                                          cur = 7 },
+                                   LVL = 4,
+                                   name = "coworker01",
+                                   img = lady01battle, },
+
                   }
 
    -- the three tones of conversation

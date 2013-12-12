@@ -332,6 +332,16 @@
     <property name="Solid" value=""/>
    </properties>
   </tile>
+  <tile id="208">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="209">
+   <properties>
+    <property name="Solid" value=""/>
+   </properties>
+  </tile>
   <tile id="210">
    <properties>
     <property name="Solid" value=""/>
@@ -369,12 +379,12 @@
   </tile>
   <tile id="240">
    <properties>
-    <property name="Solid" value=""/>
+    <property name="" value=""/>
    </properties>
   </tile>
   <tile id="241">
    <properties>
-    <property name="Solid" value=""/>
+    <property name="" value=""/>
    </properties>
   </tile>
   <tile id="261">

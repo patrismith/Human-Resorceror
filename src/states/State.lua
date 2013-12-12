@@ -7,9 +7,15 @@ local State = class:new()
 function State:load(x, y)
 
    if self.music then
-      love.audio.rewind(self.music)
-      love.audio.stop()
-      love.audio.play(self.music)
+      --love.audio.rewind(self.music)
+      if defaultmusic then
+         if self.music ~= defaultmusic then
+            love.audio.rewind()
+            love.audio.stop()
+            love.audio.play(self.music)
+         end
+      end
+      defaultmusic = self.music
    end
 
    self:destroy()

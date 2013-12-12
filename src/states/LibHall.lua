@@ -1,5 +1,7 @@
 local LibHall = State:new()
 
+LibHall.music = overworld02bgm
+
 LibHall.objectList = { bg = Map:new(),
                        player = Player:new(),
                        door01 = Exit:new(),

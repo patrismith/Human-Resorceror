@@ -45,6 +45,19 @@ function love.load()
    lady01battle = love.graphics.newImage('assets/lady01battle.png')
    lady02battle = love.graphics.newImage('assets/lady02battle.png')
 
+   -- music
+   overworld01bgm = love.audio.newSource('assets/music/Overworld01.ogg')
+   overworld01bgm:setLooping(true)
+   overworld02bgm = love.audio.newSource('assets/music/Overworld02.ogg')
+   overworld02bgm:setLooping(true)
+   overworld03bgm = love.audio.newSource('assets/music/Overworld03.ogg')
+   overworld03bgm:setLooping(true)
+   overworld04bgm = love.audio.newSource('assets/music/Overworld04.ogg')
+   overworld04bgm:setLooping(true)
+   battlebgm = love.audio.newSource('assets/music/Battle.ogg')
+   battlebgm:setLooping(true)
+
+   defaultmusic = battlebgm
 
    collision:init()
    combat:init()

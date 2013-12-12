@@ -1,5 +1,7 @@
 local Eyeroom = State:new()
 
+Eyeroom.music = overworld03bgm
+
 Eyeroom.objectList = { bg = Map:new(),
                        player = Player:new(),
                        door01 = Exit:new(),
@@ -10,9 +12,9 @@ Eyeroom.paramList = { bg = { map = 'eyeroom.tmx'},
                       player = {},
                       door01 = { x = 27 * tilesize,
                                y = 14 * tilesize,
-                               dest = { name = 'Hallway', --replace
-                                        x = 16 * tilesize,
-                                        y = 14 * tilesize },
+                               dest = { name = 'Ceoroom',
+                                        x = 5 * tilesize,
+                                        y = 16 * tilesize },
                       },
                      }
 

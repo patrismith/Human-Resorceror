@@ -1,5 +1,7 @@
 local Hallway = State:new()
 
+Hallway.music = overworld01bgm
+
 Hallway.objectList = { bg = Map:new(),
                        player = Player:new(),
                        coworker = NPC:new(),
