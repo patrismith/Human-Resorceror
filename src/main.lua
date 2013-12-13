@@ -1,4 +1,8 @@
+ATL = require('Advanced-Tiled-Loader')
+
 function love.load()
+
+   ATL.Loader.path = 'assets/maps/'
 
    -- game rooms are stored in a table
    rooms = {}
@@ -10,13 +14,17 @@ function love.load()
 
    column = 0
    -- split roomdata into lines
+   -- roomdata follows a format like:
+   -- name of room:music variable:map filename
+   -- then for every exit, room to exit to:x:y:destination x:dest y
+   -- x and y are in tiles, not pixels
    for line in string.gmatch(roomdata, '[^\n]+') do
+      -- for every line, reset the temp variables
       column = 0
       temproom = ""
       tempexit = ""
-      -- here assign values in a table
-
       for word in string.gmatch(line, '[^:]+') do
+         -- assign values to the room table depending on what column the word is in
          column = column + 1
          if column == 1 then
             rooms[word] = {}
@@ -26,6 +34,8 @@ function love.load()
             rooms[temproom].music = word
          elseif column == 3 then
             rooms[temproom].map = word
+         --below is the code for creating exits
+         --it will break if the format is not followed!
          elseif (column + 1) % 5 == 0 then
             rooms[temproom].exit[word] = {}
             tempexit = word
@@ -41,24 +51,10 @@ function love.load()
       end
    end
 
-   for k,v in pairs(rooms) do
-      print("Room table contains: " .. k .. ", " .. type(v))
-      if type(v) == "table" then
-         for k2,v2 in pairs(v) do
-            if type(v2) == "string" then
-               print(k .. " table contains " .. k2 .. ", " .. v2)
-            else
-               print(k .. " table contains " .. k2 .. ", " .. type(v2))
-               for k3, v3 in pairs(v2) do
-                  print(k2 .. " is to " .. k3 .. ", " .. type(v3))
-                  for k4, v4 in pairs(v3) do
-                     print(k4 .. ", " .. v4)
-                  end
-               end
-            end
-         end
-      end
-   end
+   begin = "Youroffice"
+   print(rooms[begin].map)
+
+   drawmap = ATL.Loader.load(rooms[begin].map)
 
 end
 
@@ -70,7 +66,7 @@ end
 
 function love.draw()
 
-   love.graphics.print(roomdata,0,0)
+   drawmap:draw()
 
 end
 
