@@ -1,98 +1,80 @@
---constants = require('constants')
-statemanager = require('statemanager')
-class = require('class')
-collision = require('collision')
-playerstats = require('playerstats')
-combat = require('combat')
-ATL = require('Advanced-Tiled-Loader')
-
-State = require('states.State')
-
-Map = require('entities.Map')
-Player = require('entities.Player')
-NPC = require('entities.NPC')
-DialogueBox = require('entities.DialogueBox')
-DialogueBoxSeries = require('entities.DialogueBoxSeries')
-Exit = require('entities.Exit')
-
-introturn = require('introturn')
-playerturn = require('playerturn')
-enemyturn = require('enemyturn')
-resolveturn = require('resolveturn')
-endturn = require('endturn')
-
-tilesize = 8
-
 function love.load()
 
-   ATL.Loader.path = 'assets/maps/'
+   -- game rooms are stored in a table
+   rooms = {}
 
-   -- npc and player sprites
-   charsprites = love.graphics.newImage('assets/sprites.png')
-   playerimg = love.graphics.newQuad(0,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
-   mustache = love.graphics.newQuad(tilesize,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
-   oldone = love.graphics.newQuad(tilesize*2,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
-   pigtails = love.graphics.newQuad(tilesize*3,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
-   fashionable = love.graphics.newQuad(tilesize*4,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
-   oldtwo = love.graphics.newQuad(tilesize*5,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
-   boss = love.graphics.newQuad(tilesize*6,0,tilesize,tilesize*2,tilesize*8,tilesize*2)
+   -- info about game rooms are stored in a text file
+   handle = love.filesystem.newFile('testload.txt')
+   roomdata = handle:read()
+   handle:close()
 
-   -- battle images
-   guy01battle = love.graphics.newImage('assets/guy01battle.png')
-   guy02battle = love.graphics.newImage('assets/guy02battle.png')
-   old01battle = love.graphics.newImage('assets/old01battle.png')
-   old02battle = love.graphics.newImage('assets/old02battle.png')
-   lady01battle = love.graphics.newImage('assets/lady01battle.png')
-   lady02battle = love.graphics.newImage('assets/lady02battle.png')
+   column = 0
+   -- split roomdata into lines
+   for line in string.gmatch(roomdata, '[^\n]+') do
+      column = 0
+      temproom = ""
+      tempexit = ""
+      -- here assign values in a table
 
-   -- music
-   overworld01bgm = love.audio.newSource('assets/music/Overworld01.ogg')
-   overworld01bgm:setLooping(true)
-   overworld02bgm = love.audio.newSource('assets/music/Overworld02.ogg')
-   overworld02bgm:setLooping(true)
-   overworld03bgm = love.audio.newSource('assets/music/Overworld03.ogg')
-   overworld03bgm:setLooping(true)
-   overworld04bgm = love.audio.newSource('assets/music/Overworld04.ogg')
-   overworld04bgm:setLooping(true)
-   battlebgm = love.audio.newSource('assets/music/Battle.ogg')
-   battlebgm:setLooping(true)
+      for word in string.gmatch(line, '[^:]+') do
+         column = column + 1
+         if column == 1 then
+            rooms[word] = {}
+            rooms[word].exit = {}
+            temproom = word
+         elseif column == 2 then
+            rooms[temproom].music = word
+         elseif column == 3 then
+            rooms[temproom].map = word
+         elseif (column + 1) % 5 == 0 then
+            rooms[temproom].exit[word] = {}
+            tempexit = word
+         elseif column % 5 == 0 then
+            rooms[temproom].exit[tempexit].x = word
+         elseif (column - 1) % 5 == 0 then
+            rooms[temproom].exit[tempexit].y = word
+         elseif (column - 2) % 5 == 0 then
+            rooms[temproom].exit[tempexit].destx = word
+         elseif (column - 3) % 5 == 0 then
+            rooms[temproom].exit[tempexit].desty = word
+         end
+      end
+   end
 
-   defaultmusic = battlebgm
-
-   collision:init()
-   combat:init()
-   playerstats:init()
-
-   love.graphics.setColorMode('replace')
-   love.graphics.setLine(1,'rough')
-
-   local img = love.graphics.newImage('assets/littlefont.png')
-   img:setFilter("nearest","nearest")
-   dialogueFont = love.graphics.newImageFont(img, " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!'\"-:?")
-
-   statemanager:init()
-
-   love.graphics.setFont(dialogueFont)
+   for k,v in pairs(rooms) do
+      print("Room table contains: " .. k .. ", " .. type(v))
+      if type(v) == "table" then
+         for k2,v2 in pairs(v) do
+            if type(v2) == "string" then
+               print(k .. " table contains " .. k2 .. ", " .. v2)
+            else
+               print(k .. " table contains " .. k2 .. ", " .. type(v2))
+               for k3, v3 in pairs(v2) do
+                  print(k2 .. " is to " .. k3 .. ", " .. type(v3))
+                  for k4, v4 in pairs(v3) do
+                     print(k4 .. ", " .. v4)
+                  end
+               end
+            end
+         end
+      end
+   end
 
 end
 
 
 function love.update(dt)
 
-   statemanager:update(dt)
-
 end
 
 
 function love.draw()
 
-   statemanager:draw()
+   love.graphics.print(roomdata,0,0)
 
 end
 
 
 function love.keypressed(key)
-
-   statemanager:keypressed(key)
 
 end

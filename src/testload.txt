@@ -1,0 +1,3 @@
+Breakroom:overworld01bgm:blah.tmx::Hallway:10:10:28:15:Another:14:14:15:15
+Another:blahbgm:blah2.tmx:Breakroom:10:10:20:20
+Hallway:hallwaybgm:hallw.tmx:Breakroom:30:30:20:20
