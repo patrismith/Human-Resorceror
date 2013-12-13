@@ -12,15 +12,15 @@ Office02.objectList = { bg = Map:new(),
 
 Office02.paramList = { bg = { map = 'coworkeroffice02.tmx'},
                       player = {},
-                      worker01 = { x = 16,
-                                   y = 13,
+                      worker01 = { x = 16 * tilesize,
+                                   y = 13 * tilesize,
                                    name = 'worker01',
                                    img = oldtwo,
                                    sheet = charsprites,
                                    dialogue = {
                                       {"My dad thinks I'm a failure, but I'll show him!"},},},
-                      worker02 = { x = 10,
-                                   y = 17,
+                      worker02 = { x = 10 * tilesize,
+                                   y = 17 * tilesize,
                                    name = 'worker02',
                                    img = fashionable,
                                    sheet = charsprites,
@@ -42,13 +42,17 @@ Office02.paramList = { bg = { map = 'coworkeroffice02.tmx'},
                      }
 
 Office02.zList = { "bg",
+                   "worker01",
+                   "worker02",
                   "player",
 }
 
 Office02.staticList = { "bg",
                        "player",
                        "door01",
-                       "door02"
+                       "door02",
+                       "worker01",
+                       "worker02",
 }
 
 return Office02

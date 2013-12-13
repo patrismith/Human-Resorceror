@@ -147,6 +147,11 @@ function combat:init()
                                    LVL = 4,
                                    name = "coworker01",
                                    img = lady01battle, },
+                    ceo = { PP = { max = 20,
+                                   cur = 20 },
+                            LVL = 10,
+                            name = "ceo",
+                            img = lady01battle, }, -- change this to ceo battle pic later :)
 
                   }
 
