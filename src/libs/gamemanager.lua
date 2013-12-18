@@ -7,25 +7,51 @@ function gamemanager:init()
 
    collisionmanager:init()
 
+   dialoguemanager:init()
+
    displaymanager:init()
 
    mapmanager:init()
 
    playermanager:init(20,15)
 
+   self:setState('normal')
+
+end
+
+
+function gamemanager:setState(str)
+
+   -- for now, i'm going to use self.status to denote game state
+   -- 'normal' is walking around on a game map
+   -- 'dialogue' is when a dialogue box must be read, and other game events are frozen
+   -- the dialogue manager is going to change this variable directly when it needs to
+   self.status = str
+   displaymanager:clearDrawFuncs()
+   displaymanager:addDrawFuncs(constants.status[self.status])
+
 end
 
 
 function gamemanager:update(dt)
 
-   playermanager:update(dt)
+   -- i may want to change this to a 'function list' like the displaymanager uses
+   if self.status == 'normal' then
+      playermanager:update(dt)
+   elseif self.status == 'dialogue' then
+      dialoguemanager:update(dt)
+   end
 
 end
 
 
 function gamemanager:keypressed(key)
 
-   --dbug.show("gamemanager registered keypress: " .. key)
+   if self.status == 'normal' then
+      playermanager:keypressed(key)
+   elseif self.status == 'dialogue' then
+      dialoguemanager:keypressed(key)
+   end
 
 end
 

@@ -45,6 +45,7 @@ end
 
 function mapmanager:init()
 
+   npcmanager:init()
    self.rooms = {}
    self.parse(constants.mapFile, self.rooms)
 
@@ -53,9 +54,10 @@ function mapmanager:init()
 end
 
 
-function mapmanager:loadMap(str)
+function mapmanager:loadMap(mapName)
 
-   self.map = ATL.Loader.load(self.rooms[str].map)
+   constants.currmap = mapName
+   self.map = ATL.Loader.load(self.rooms[mapName].map)
 
    for i in pairs(self.map.layers) do
       for x, y, tile in self.map(i):iterate() do
@@ -65,16 +67,18 @@ function mapmanager:loadMap(str)
       end
    end
 
-   for k,v in pairs(self.rooms[str].exit) do
+   for k,v in pairs(self.rooms[mapName].exit) do
       dbug.show('exit ' .. k .. ' at ' .. v.xtile .. ', ' .. v.ytile .. ' to ' .. v.destx .. ', ' .. v.desty)
       collisionmanager:addTile({xtile = v.xtile, ytile = v.ytile, id = 'exit',
                                 dest = {xtile = v.destx, ytile = v.desty, map = k}})
    end
 
+   npcmanager:loadNPCs(mapName)
+
 end
 
 
-function mapmanager:unloadMap()
+function mapmanager:changeMap()
 
 
 
@@ -84,6 +88,7 @@ end
 function mapmanager.draw()
 
    mapmanager.map:draw()
+
 
 end
 

@@ -1,1 +1,1 @@
-Youroffice:coworker:constants.pigtails:true:false:false:Some text
+YourOffice:coworker:pigtails:17:13:true:false:false:Some text*split up
