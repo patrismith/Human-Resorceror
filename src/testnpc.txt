@@ -1,1 +1,4 @@
 YourOffice:coworker:pigtails:17:13:true:false:false:Some text*split up
+YourOffice:coworkey:pigtails:10:10:true:false:false:My god it's full of stars*just kidding
+Hallway:coworker:pigtails:11:15:false:false:false:Hello there
+Hallway:coworkey:pigtails:10:15:true:false:false:Hi

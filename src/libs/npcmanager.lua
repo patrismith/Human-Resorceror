@@ -24,7 +24,9 @@ function npcmanager.parse(f, t)
       for word in string.gmatch(line, '[^:]+') do
          column = column + 1
          if column == 1 then
-            t[word] = {}
+            if not t[word] then
+               t[word] = {}
+            end
             currroom = word
          elseif column == 2 then
             t[currroom][word] = {}
