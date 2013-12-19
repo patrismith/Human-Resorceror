@@ -46,7 +46,28 @@ function collisionmanager:addTile(params)
 end
 
 
-function collisionmanager:detect(x, y)
+function collisionmanager:NPCfirst(name)
+
+   table.sort(self.tiles, function(a,b) return a.name and (a.name == name) or false end)
+
+end
+
+
+function collisionmanager:moveNPC()
+
+
+
+end
+
+function collisionmanager:removeNPC(name)
+
+   self:NPCfirst(name)
+   table.remove(self.tiles, 1)
+
+end
+
+
+function collisionmanager:detect(x, y, tile)
 
    -- detect a square
    local xtile = constants:pxtotile(x)

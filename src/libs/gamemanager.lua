@@ -38,6 +38,7 @@ function gamemanager:update(dt)
    -- i may want to change this to a 'function list' like the displaymanager uses
    if self.status == 'normal' then
       playermanager:update(dt)
+      npcmanager:update(dt)
    elseif self.status == 'dialogue' then
       dialoguemanager:update(dt)
    end

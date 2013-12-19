@@ -13,6 +13,7 @@ function constants:init()
                       right = { x = 1,
                                 y = 0 }
                     }
+   self.playerdirindex = {'up','down','left','right'}
    self.mapFile = 'testload.txt'
    self.npcFile = 'testnpc.txt'
    self.startingRoom = 'YourOffice'
