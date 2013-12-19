@@ -16,13 +16,21 @@ function constants:init()
    self.playerdirindex = {'up','down','left','right'}
    self.mapFile = 'testload.txt'
    self.npcFile = 'testnpc.txt'
-   self.startingRoom = 'YourOffice'
+
+   -- where the player starts
+   self.startingLoc = {}
+   self.startingLoc.room = 'YourOffice'
+   self.startingLoc.xtile = 20
+   self.startingLoc.ytile = 15
 
    self.charsheet = love.graphics.newImage('assets/sprites.png')
    self.sprites = {}
    self.sprites.player = love.graphics.newQuad(0,0,8,8*2,8*8,8*2)
-   self.sprites.pigtails = love.graphics.newQuad(8*4,0,8,8*2,8*8,8*2)
+   self.sprites.pigtails = love.graphics.newQuad(8*3,0,8,8*2,8*8,8*2)
+   self.sprites.notsure = love.graphics.newQuad(8*2,0,8,8*2,8*8,8*2)
 
+   -- draw functions to pass to displaymanager
+   -- simulates different 'gamestates'
    self.status = {}
    self.status.normal = {mapmanager.draw,
                          displaymanager.drawSprites,
@@ -36,6 +44,8 @@ function constants:init()
 
 end
 
+
+-- functions used by multiple modules
 
 function constants.clearTable(tbl)
 

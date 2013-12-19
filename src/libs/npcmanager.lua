@@ -88,6 +88,15 @@ function npcmanager:createNPC(key,val)
 end
 
 
+function npcmanager:removeNPC(map, name)
+
+   -- this permanently removes the NPC from the game
+   self.npcs[map][name] = nil
+   displaymanager:removeSprite(name)
+   collisionmanager:removeNPC(name)
+
+end
+
 function npcmanager:talk(map, name)
 
    dialoguemanager:startDialogue(self.npcs[map][name].dialogue.pre or nil)

@@ -104,6 +104,13 @@ function playermanager:keypressed(key)
 
       if collide == 'npc' then
          npcmanager:talk(constants.currmap, name)
+
+         -- this is an example of a handcoded event
+         -- I'm still thinking of how to do events
+         if name == 'itemtest' then
+            npcmanager:removeNPC(constants.currmap, name)
+         end
+
       end
 
    end

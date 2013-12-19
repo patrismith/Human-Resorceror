@@ -4,16 +4,13 @@ local gamemanager = {}
 function gamemanager:init()
 
    constants:init()
-
    collisionmanager:init()
-
    dialoguemanager:init()
-
    displaymanager:init()
-
    mapmanager:init()
 
-   playermanager:init(20,15)
+   -- start the player
+   playermanager:init(constants.startingLoc.xtile,constants.startingLoc.ytile)
 
    self:setState('normal')
 
@@ -22,7 +19,7 @@ end
 
 function gamemanager:setState(str)
 
-   -- for now, i'm going to use self.status to denote game state
+   -- for now, i'm going to use gamemanager.status to denote game state
    -- 'normal' is walking around on a game map
    -- 'dialogue' is when a dialogue box must be read, and other game events are frozen
    -- the dialogue manager is going to change this variable directly when it needs to
@@ -36,6 +33,7 @@ end
 function gamemanager:update(dt)
 
    -- i may want to change this to a 'function list' like the displaymanager uses
+
    if self.status == 'normal' then
       playermanager:update(dt)
       npcmanager:update(dt)

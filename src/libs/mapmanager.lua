@@ -49,7 +49,7 @@ function mapmanager:init()
    self.rooms = {}
    self.parse(constants.mapFile, self.rooms)
 
-   self:loadMap(constants.startingRoom)
+   self:loadMap(constants.startingLoc.room)
 
 end
 

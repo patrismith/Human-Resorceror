@@ -1,4 +1,4 @@
-YourOffice:coworker:pigtails:17:13:true:false:false:Some text*split up
-YourOffice:coworkey:pigtails:10:10:true:false:false:My god it's full of stars*just kidding
-Hallway:coworker:pigtails:11:15:false:false:false:Hello there
-Hallway:coworkey:pigtails:10:15:true:false:false:Hi
+YourOffice:coworker:notsure:17:13:true:false:false:Some text*split up
+YourOffice:coworker2:pigtails:10:16:true:false:false:My god it's full of stars*just kidding
+Hallway:coworker:notsure:11:15:true:false:false:Hello there
+Hallway:itemtest:pigtails:10:16:false:false:false:This isn't a person, it's an item!
